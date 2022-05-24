@@ -71,14 +71,16 @@ dependencies {
 
     //androidx
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
     implementation ("androidx.activity:activity-compose:1.4.0")
     implementation ("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     implementation ("androidx.paging:paging-compose:1.0.0-alpha14")
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
     implementation ("androidx.navigation:navigation-compose:2.4.2")
 
     //coroutine
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.3")
 
     //dagger-hilt
     kapt ("com.google.dagger:hilt-compiler:2.42")
@@ -87,9 +89,7 @@ dependencies {
 
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
-    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.3")
     implementation ("com.squareup.okhttp3:okhttp:4.9.3")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
