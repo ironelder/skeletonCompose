@@ -1,6 +1,6 @@
 plugins {
-    id ("com.android.application")
-    id ("org.jetbrains.kotlin.android")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -49,6 +49,7 @@ android {
 }
 
 dependencies {
+
     implementation ("androidx.core:core-ktx:1.7.0")
     implementation ("androidx.compose.ui:ui:1.1.1") // compose_version
     implementation ("androidx.compose.material:material:1.1.1") // compose_version

@@ -1,15 +1,11 @@
 buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url = uri("https://jitpack.io") }
-        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots/") }
+    dependencies {
     }
 }
 plugins {
-    id("com.android.application") version "7.2.0" apply false
-    id("com.android.library") version "7.2.0" apply false
-    id("org.jetbrains.kotlin.android") version "1.5.31" apply false
+    id("com.android.application") version Versions.gradle_version apply false
+    id("com.android.library") version Versions.gradle_version apply false
+    id("org.jetbrains.kotlin.android") version Versions.kotlin_version apply false
 }
 
 tasks.register("clean", Delete::class) {
