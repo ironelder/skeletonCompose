@@ -16,6 +16,9 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        buildConfigField("String", "API_KEY", "\"123123123\"")
+        buildConfigField("String", "LANGUAGE", "\"en-US\"")
+        buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
