@@ -77,6 +77,7 @@ dependencies {
     implementation ("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     implementation ("androidx.paging:paging-compose:1.0.0-alpha14")
     implementation ("androidx.navigation:navigation-compose:2.4.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")
 
     //coroutine
     implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
