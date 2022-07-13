@@ -8,8 +8,13 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.rememberNavController
+import com.ironelder.skeletoncompose.ui.base.setThemeContent
+import com.ironelder.skeletoncompose.ui.screen.NavigationScreen
 import com.ironelder.skeletoncompose.ui.theme.SkeletonComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,17 +22,24 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            SkeletonComposeTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
+        setThemeContent {
+            CompositionLocalProvider(
+                provideViewModelFactory(hiltViewModel<MainViewModelImpl>())
+            ) {
+                NavigationScreen(navController = rememberNavController())
             }
         }
+//        setContent {
+//            SkeletonComposeTheme {
+//                // A surface container using the 'background' color from the theme
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    Greeting("Android")
+//                }
+//            }
+//        }
     }
 }
 
