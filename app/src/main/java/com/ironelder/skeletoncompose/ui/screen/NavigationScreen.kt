@@ -67,7 +67,7 @@ fun NavigationScreen(
                 startDestination = BottomItemType.Upcoming.route
             ) {
                 composable(BottomItemType.Upcoming.route) {
-                    Text(text = "Upcoming")
+                    HomeScreen()
                 }
                 composable(BottomItemType.Trending.route) {
                     Text(text = "Trending")

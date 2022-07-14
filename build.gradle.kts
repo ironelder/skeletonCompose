@@ -7,6 +7,8 @@ plugins {
 buildscript {
     dependencies {
         classpath(BuildDefine.hilt_plugin)
+        classpath(kotlin("gradle-plugin", version = Versions.kotlin_version))
+        classpath(kotlin("serialization", version = Versions.kotlin_version))
     }
 }
 

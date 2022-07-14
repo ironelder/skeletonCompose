@@ -1,7 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-parcelize")
+    id("kotlinx-serialization")
+//    id("kotlin-parcelize")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
 }
@@ -16,7 +17,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "API_KEY", "\"123123123\"")
+        buildConfigField("String", "API_KEY", "\"e17c2715face752d9ed1a2a0054aa7d6\"")
         buildConfigField("String", "LANGUAGE", "\"en-US\"")
         buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -94,6 +95,8 @@ dependencies {
 
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
     implementation ("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.3")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.1")
