@@ -14,6 +14,6 @@ class CoroutineModule {
     fun providesIoDispatcher() = Dispatchers.IO
 
     @Provides
-    fun providesMainDispatcher() = Dispatchers.Main.immediate
+    fun providesMainImmediateDispatcher() = Dispatchers.Main.immediate
 
 }
