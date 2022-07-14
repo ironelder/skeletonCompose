@@ -19,8 +19,12 @@ class MainViewModelImpl @Inject constructor(
 
     override fun getCommonData() {
         viewModelScope.launch(Dispatchers.IO) {
-            val commonData = useCase.getCommonData(1)
-            println("ironelder result = $commonData")
+            try {
+                val commonData = useCase.invoke(1).getOrThrow()
+                println("ironelder result = $commonData")
+            } catch (e:Exception) {
+                println("ironelder Exception = $e")
+            }
         }
     }
 
