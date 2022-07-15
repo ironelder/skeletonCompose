@@ -73,6 +73,7 @@ dependencies {
     implementation ("androidx.compose.animation:animation:1.1.1")
     implementation ("androidx.compose.material:material:1.1.1")
     implementation ("androidx.compose.ui:ui-viewbinding:1.1.1")
+    implementation ("com.google.accompanist:accompanist-swiperefresh:0.20.3")
 
     //androidx
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
