@@ -30,7 +30,7 @@ class NetworkModule {
     @OptIn(ExperimentalSerializationApi::class)
     @Singleton
     @Provides
-    @Named("retrofit_skeleton")
+    @Named("retrofit_search_book")
     fun provideSkeletonRetrofit(
         httpClient: OkHttpClient.Builder,
         httpLoggingInterceptor: HttpLoggingInterceptor,

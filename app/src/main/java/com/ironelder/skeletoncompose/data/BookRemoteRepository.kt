@@ -7,6 +7,6 @@ interface BookRemoteRepository {
         query: String,
         page: Int,
         sort: String = "sim",
-        display: Int = 10,
+        display: Int = 20,
     ): SearchBookResultModel
 }

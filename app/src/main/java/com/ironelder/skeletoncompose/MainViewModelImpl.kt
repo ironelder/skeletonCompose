@@ -6,10 +6,8 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.ironelder.skeletoncompose.ui.paging.SkeletonMoviePagingSource
-import com.ironelder.skeletoncompose.usecase.GetCommonDataUseCase
+import com.ironelder.skeletoncompose.ui.paging.SearchBookPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -20,7 +18,7 @@ interface MainViewModel : BaseViewModel {
 
 @HiltViewModel
 class MainViewModelImpl @Inject constructor(
-    private val commonPagingSource: SkeletonMoviePagingSource
+    private val searchBookPagingSource: SearchBookPagingSource
 ) : MainViewModel, ViewModel() {
 
     private val dataChangeTrigger = flow {
@@ -31,9 +29,10 @@ class MainViewModelImpl @Inject constructor(
     val isRefresh: StateFlow<Boolean> = _isRefresh
     private val refreshFlow = MutableSharedFlow<Unit>()
 
-    val getMovieList = dataChangeTrigger.flatMapLatest {
+    val getSearchBookList = dataChangeTrigger.flatMapLatest {
         val elapsedTime = System.currentTimeMillis()
-        Pager(config = PagingConfig(pageSize = 20), pagingSourceFactory = ::commonPagingSource)
+        searchBookPagingSource.searchQuery = "Android"
+        Pager(config = PagingConfig(pageSize = 20), pagingSourceFactory = ::searchBookPagingSource)
             .flow
             .cachedIn(viewModelScope)
             .catch { println(it.localizedMessage) }

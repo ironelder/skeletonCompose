@@ -50,7 +50,7 @@ fun HomeScreen(viewModel: MainViewModelImpl = getActivityViewModel()) {
             actions = { }
         )
     }) {
-        val commonList = viewModel.getMovieList.collectAsLazyPagingItems()
+        val commonList = viewModel.getSearchBookList.collectAsLazyPagingItems()
         val isRefresh by viewModel.isRefresh.collectAsState()
         SwipeRefresh(
             state = rememberSwipeRefreshState(isRefreshing = isRefresh),
@@ -62,7 +62,7 @@ fun HomeScreen(viewModel: MainViewModelImpl = getActivityViewModel()) {
                 itemsIndexed(commonList) { data, position ->
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         Text(text = data.title)
-                        Text(text = data.overview)
+                        Text(text = data.description)
                     }
                 }
                 setPagingStateListener(

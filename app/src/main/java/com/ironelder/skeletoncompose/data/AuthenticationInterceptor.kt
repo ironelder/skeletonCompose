@@ -12,8 +12,8 @@ class AuthenticationInterceptor @Inject constructor() : Interceptor {
         val request = original.newBuilder().apply {
             url(
                 original.url.newBuilder().apply {
-                    addQueryParameter("api_key", BuildConfig.API_KEY)
-                    addQueryParameter("language", BuildConfig.LANGUAGE)
+                    addHeader("X-Naver-Client-Id", BuildConfig.API_KEY)
+                    addHeader("X-Naver-Client-Secret", BuildConfig.CLIENT_KEY)
                 }.build()
             )
         }.method(original.method, original.body).build()

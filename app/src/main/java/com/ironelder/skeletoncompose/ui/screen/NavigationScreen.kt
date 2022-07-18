@@ -3,6 +3,7 @@ package com.ironelder.skeletoncompose.ui.screen
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.ThumbUp
 import androidx.compose.runtime.Composable
@@ -64,16 +65,13 @@ fun NavigationScreen(
         CompositionLocalProvider(LocalScaffoldState provides scaffoldState) {
             NavHost(
                 navController = navController,
-                startDestination = BottomItemType.Upcoming.route
+                startDestination = BottomItemType.Search.route
             ) {
-                composable(BottomItemType.Upcoming.route) {
+                composable(BottomItemType.Search.route) {
                     HomeScreen()
                 }
-                composable(BottomItemType.Trending.route) {
+                composable(BottomItemType.Favorite.route) {
                     Text(text = "Trending")
-                }
-                composable(BottomItemType.Genre.route) {
-                    Text(text = "Genre")
                 }
             }
         }
@@ -83,9 +81,8 @@ fun NavigationScreen(
 
 
 enum class BottomItemType(val route: String, val icon: ImageVector) {
-    Upcoming("Upcoming", Icons.Filled.Favorite),
-    Trending("Trending", Icons.Filled.ThumbUp),
-    Genre("Genre", Icons.Filled.Star)
+    Search("Search", Icons.Filled.Search),
+    Favorite("Favorite", Icons.Filled.Favorite)
 }
 
 val LocalScaffoldState = compositionLocalOf<ScaffoldState> { error("Not provided scaffoldState") }

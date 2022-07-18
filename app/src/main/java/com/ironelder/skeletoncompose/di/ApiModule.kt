@@ -1,8 +1,7 @@
 package com.ironelder.skeletoncompose.di
 
-import com.ironelder.skeletoncompose.data.CommonApi
-import com.ironelder.skeletoncompose.data.CommonRepository
-import com.ironelder.skeletoncompose.data.CommonRepositoryImpl
+import com.ironelder.skeletoncompose.data.BookRemoteRepository
+import com.ironelder.skeletoncompose.data.BookRemoteRepositoryImpl
 import com.ironelder.skeletoncompose.data.SearchBookApi
 import dagger.Module
 import dagger.Provides
@@ -20,16 +19,12 @@ class ApiModule {
 
     @Singleton
     @Provides
-    fun provideCommonApi(@Named("retrofit_skeleton") retrofit: Retrofit): CommonApi =
-        retrofit.create()
-
-    @Singleton
-    @Provides
     fun provideSearchBookApi(@Named("retrofit_search_book") retrofit: Retrofit): SearchBookApi =
         retrofit.create()
 
     @Singleton
     @Provides
-    fun provideCommonRepository(repositoryImpl: CommonRepositoryImpl): CommonRepository =
+    fun provideSearchRepository(repositoryImpl: BookRemoteRepositoryImpl): BookRemoteRepository =
         repositoryImpl
+
 }
