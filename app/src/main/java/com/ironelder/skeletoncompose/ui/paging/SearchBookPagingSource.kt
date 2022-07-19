@@ -21,7 +21,7 @@ class SearchBookPagingSource @Inject constructor(private val useCase: GetSearchB
             val response = useCase.invoke(SearchQuery(query = searchQuery, page = next)).getOrThrow()
             LoadResult.Page(
                 data = response.items
-                    .filter { it.title.isNotEmpty() }
+                    .filter { it.isbn.isNotEmpty() }
                     .map(BookResultItem::resultToPagingMapper),
                 prevKey = if (next == 1) null else next - 1,
                 nextKey = if (next > response.total) null else response.start.plus(response.display)
