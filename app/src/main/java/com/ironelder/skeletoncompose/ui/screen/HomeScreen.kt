@@ -50,7 +50,7 @@ fun HomeScreen(viewModel: MainViewModelImpl = getActivityViewModel()) {
         SwipeRefresh(
             state = rememberSwipeRefreshState(isRefreshing = isRefresh),
             onRefresh = {
-                //viewModelRefresh
+                viewModel.refreshBooks()
             }
         ) {
             LazyVerticalGrid(cells = GridCells.Fixed(2)) {

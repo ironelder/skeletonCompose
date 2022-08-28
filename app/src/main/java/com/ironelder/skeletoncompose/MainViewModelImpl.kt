@@ -8,6 +8,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.ironelder.skeletoncompose.ui.paging.SearchBookPagingSource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -16,6 +17,7 @@ import javax.inject.Inject
 interface MainViewModel : BaseViewModel {
 }
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @HiltViewModel
 class MainViewModelImpl @Inject constructor(
     private val searchBookPagingSource: SearchBookPagingSource
@@ -47,5 +49,12 @@ class MainViewModelImpl @Inject constructor(
                 it
             }
             .stateIn(viewModelScope, SharingStarted.WhileSubscribed(), PagingData.empty())
+    }
+
+    fun refreshBooks() {
+        viewModelScope.launch {
+            refreshFlow.emit(Unit)
+            _isRefresh.emit(true)
+        }
     }
 }
