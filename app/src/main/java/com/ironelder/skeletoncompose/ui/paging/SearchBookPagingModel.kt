@@ -9,7 +9,6 @@ data class SearchBookPagingModel(
     val image: String,
     val isbn: String,
     val link: String,
-    val price: String,
     val pubdate: String,
     val publisher: String,
     val title: String
@@ -22,7 +21,6 @@ fun BookResultItem.resultToPagingMapper() = SearchBookPagingModel(
     image,
     isbn,
     link,
-    price,
     pubdate,
     publisher,
     title

@@ -31,8 +31,6 @@ data class BookResultItem(
     val isbn: String,
     @SerialName("link")
     val link: String,
-    @SerialName("price")
-    val price: String,
     @SerialName("pubdate")
     val pubdate: String,
     @SerialName("publisher")
