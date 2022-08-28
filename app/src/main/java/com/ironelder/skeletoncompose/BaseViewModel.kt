@@ -20,14 +20,15 @@ fun <T : BaseViewModel> getActivityViewModel(): T = ActivityViewModelFactory.cur
 
 
 // ViewModel Factory using current viewModelStoreOwner
-@SuppressLint("CompositionLocalNaming")
-private val ViewModelFactory = compositionLocalOf<@Composable () -> BaseViewModel> {
-    { error("Not ViewModel Provided") }
-}
+// TODO : variable Activity ViewModel as T
+//@SuppressLint("CompositionLocalNaming")
+//private val ViewModelFactory = compositionLocalOf<@Composable () -> BaseViewModel> {
+//    { error("Not ViewModel Provided") }
+//}
+//
+//fun provideViewModelFactory(viewModelFactory: @Composable () -> BaseViewModel) =
+//    ViewModelFactory provides viewModelFactory
 
-fun provideViewModelFactory(viewModelFactory: @Composable () -> BaseViewModel) =
-    ViewModelFactory provides viewModelFactory
-
-@Composable
-fun <T : BaseViewModel> getViewModel(): T = ViewModelFactory.current() as T
+//@Composable
+//fun <T : BaseViewModel> getViewModel(): T = ViewModelFactory.current() as T
 
